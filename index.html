@@ -1,280 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Pro | Digital Marketer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital Marketer Portfolio - Showcasing skills in SEO, Social Media, Content Marketing, and more.">
+  <title>Digital Pro | Digital Marketer</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #0d0d0d; color: #e0e0e0; line-height:1.6; overflow-x:hidden; }
+    a { color: #00e5ff; text-decoration: none; transition: 0.3s; }
+    a:hover { color: #00ffcc; }
 
-<style>
+    /* Container */
+    .container { width: 90%; max-width: 1200px; margin: auto; }
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#f5f1ea;
-color:#333;
-scroll-behavior:smooth;
-}
+    /* Navigation */
+    nav { position:fixed; top:0; width:100%; background:#111827; padding:10px 0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.5); }
+    nav ul { display:flex; justify-content:center; list-style:none; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { font-weight:500; }
 
-header{
-background:#e8dfd6;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-}
+    /* Header / Hero */
+    header { display:flex; flex-direction: column; align-items:center; justify-content:center; text-align:center; height:100vh; background: linear-gradient(135deg, #0d0d0d 0%, #111827 100%); padding: 0 20px; }
+    header h1 { font-size: 3rem; background: linear-gradient(90deg, #00e5ff, #00ffcc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:10px; animation: gradientMove 3s ease infinite alternate; }
+    @keyframes gradientMove { 0% { background-position: 0% } 100% { background-position: 100% } }
+    header p { font-size: 1.2rem; margin-bottom: 20px; }
+    .cta-btn { display:inline-block; padding: 12px 30px; background: linear-gradient(90deg, #00e5ff, #00ffcc); color:#0d0d0d; font-weight:bold; border-radius:5px; transition:0.3s; }
+    .cta-btn:hover { background: linear-gradient(90deg, #00ffcc, #00e5ff); }
 
-header h1{
-margin:0;
-font-size:22px;
-}
+    /* Sections */
+    section { padding: 80px 0; opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+    section.visible { opacity:1; transform: translateY(0); }
+    section h2 { text-align:center; font-size:2rem; margin-bottom:40px; color:#00e5ff; }
+    section p { max-width:800px; margin: auto; text-align:center; }
 
-nav a{
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-color:#333;
-}
+    /* Skills */
+    .skills { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+    .skill-card { background:#1a1a1a; padding:20px; border-radius:10px; width:200px; text-align:center; transition:0.3s; cursor:pointer; }
+    .skill-card:hover { transform: translateY(-5px) scale(1.05); background: linear-gradient(90deg, #00e5ff, #00ffcc); color:#0d0d0d; }
 
-nav a:hover{
-color:#b89c85;
-}
+    /* Projects */
+    .projects { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+    .project-card { background:#1a1a1a; border-radius:10px; overflow:hidden; width:300px; transition:0.3s; cursor:pointer; }
+    .project-card img { width:100%; display:block; border-bottom:1px solid #222; }
+    .project-card h3 { padding:15px; color:#00e5ff; }
+    .project-card p { padding: 0 15px 15px; }
+    .project-card:hover { transform: scale(1.03); box-shadow:0 8px 20px rgba(0,255,204,0.3); }
 
-.hero{
-padding:110px 10%;
-text-align:center;
-}
+    /* Testimonials */
+    .testimonials { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+    .testimonial-card { background:#1a1a1a; padding:20px; border-radius:10px; width:300px; text-align:center; transition:0.3s; }
+    .testimonial-card img { width:60px; height:60px; border-radius:50%; margin-bottom:10px; }
+    .testimonial-card:hover { transform: translateY(-5px) scale(1.02); background: linear-gradient(90deg, #00e5ff, #00ffcc); color:#0d0d0d; }
 
-.hero h2{
-font-size:42px;
-margin-bottom:10px;
-}
+    /* Contact */
+    .contact { text-align:center; }
+    .contact a { margin-top:15px; display:inline-block; }
 
-.hero p{
-font-size:18px;
-color:#666;
-}
+    /* Footer */
+    footer { text-align:center; padding:20px; background:#111827; color:#888; }
 
-.button{
-display:inline-block;
-margin-top:25px;
-padding:14px 28px;
-background:#c8b6a6;
-color:white;
-border-radius:6px;
-font-weight:bold;
-text-decoration:none;
-}
-
-.button:hover{
-background:#b29b86;
-}
-
-.section{
-padding:70px 10%;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:40px;
-font-size:30px;
-}
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.skill{
-background:#e8dfd6;
-padding:22px;
-border-radius:10px;
-flex:1 1 220px;
-}
-
-.projects{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.project{
-background:#e8dfd6;
-padding:22px;
-border-radius:10px;
-flex:1 1 250px;
-}
-
-.stats{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-text-align:center;
-}
-
-.stat{
-background:#e8dfd6;
-padding:25px;
-border-radius:10px;
-width:170px;
-}
-
-.testimonial{
-background:#e8dfd6;
-padding:20px;
-margin:15px auto;
-border-radius:10px;
-max-width:600px;
-text-align:center;
-}
-
-.contact{
-background:#e8dfd6;
-padding:70px 10%;
-text-align:center;
-}
-
-footer{
-background:#d8cec4;
-padding:20px;
-text-align:center;
-font-size:14px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-@media(max-width:768px){
-.hero h2{
-font-size:32px;
-}
-}
-
-</style>
+    /* Responsive */
+    @media(max-width:768px){
+      header h1 { font-size:2.2rem; }
+      header p { font-size:1rem; }
+      .skills, .projects, .testimonials { flex-direction:column; align-items:center; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Digital Pro</h1>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#results">Results</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section class="hero">
-<h2>Digital Marketer / Facebook Ads Specialist</h2>
-<p>I help businesses grow using high-converting Facebook Ads and digital marketing strategies.</p>
-<a class="button" href="https://wa.me/message/OF43WIX2ORDTL1" target="_blank">Message Me on WhatsApp</a>
-</section>
+  <!-- Hero Section -->
+  <header>
+    <h1>Digital Pro | Digital Marketer</h1>
+    <p>Your trusted partner in SEO, Content Marketing, Social Media, and more.</p>
+    <a href="#contact" class="cta-btn">Talk Strategy</a>
+  </header>
 
-<section id="about" class="section">
-<h2>About Me</h2>
-<p style="max-width:700px;margin:auto;text-align:center;line-height:1.6;">
-I am a digital marketer focused on creating profitable Facebook advertising campaigns and helping businesses grow online. My strategy combines audience targeting, conversion optimization and creative ad campaigns that turn visitors into customers.
-</p>
-</section>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>Welcome! I am a digital marketer specializing in growing brands online. I help businesses optimize SEO, run effective ad campaigns, and boost online presence.</p>
+    </div>
+  </section>
 
-<section id="skills" class="section">
-<h2>Marketing Skills</h2>
-<div class="skills">
-<div class="skill">
-<h3>Facebook Ads</h3>
-<p>Running profitable ad campaigns with advanced targeting and optimization.</p>
-</div>
-<div class="skill">
-<h3>Audience Targeting</h3>
-<p>Finding the right customers using interest targeting and lookalike audiences.</p>
-</div>
-<div class="skill">
-<h3>Conversion Optimization</h3>
-<p>Improving ad performance to increase ROI and reduce cost per conversion.</p>
-</div>
-<div class="skill">
-<h3>Marketing Strategy</h3>
-<p>Planning digital marketing strategies that generate leads and sales.</p>
-</div>
-</div>
-</section>
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-card">SEO</div>
+        <div class="skill-card">Content Marketing</div>
+        <div class="skill-card">Social Media Marketing</div>
+        <div class="skill-card">Email Marketing</div>
+        <div class="skill-card">Paid Ads</div>
+      </div>
+    </div>
+  </section>
 
-<section id="projects" class="section">
-<h2>Campaign Projects</h2>
-<div class="projects">
-<div class="project">
-<h3>Hair Clippers Campaign</h3>
-<p>Facebook ads campaign targeting barbers and grooming enthusiasts.</p>
-</div>
-<div class="project">
-<h3>Dreadlock Foam Campaign</h3>
-<p>Product awareness ads that increased engagement and product visibility.</p>
-</div>
-<div class="project">
-<h3>Local Business Leads</h3>
-<p>Lead generation campaigns helping small businesses get new customers.</p>
-</div>
-</div>
-</section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <img loading="lazy" src="https://via.placeholder.com/300x200.png?text=Project+1" alt="Project 1">
+          <h3>Project 1</h3>
+          <p>Brief description of project 1.</p>
+        </div>
+        <div class="project-card">
+          <img loading="lazy" src="https://via.placeholder.com/300x200.png?text=Project+2" alt="Project 2">
+          <h3>Project 2</h3>
+          <p>Brief description of project 2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="results" class="section">
-<h2>Campaign Results</h2>
-<div class="stats">
-<div class="stat">
-<h3>200%+</h3>
-<p>Return on Ad Spend</p>
-</div>
-<div class="stat">
-<h3>150K+</h3>
-<p>Ad Reach</p>
-</div>
-<div class="stat">
-<h3>3X</h3>
-<p>Conversion Growth</p>
-</div>
-</div>
-</section>
+  <!-- Results / Testimonials -->
+  <section id="results">
+    <div class="container">
+      <h2>Testimonials</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          <img src="https://via.placeholder.com/60" alt="Client 1">
+          <p>"Highly professional and effective in driving digital growth!"</p>
+          <strong>- Client 1</strong>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://via.placeholder.com/60" alt="Client 2">
+          <p>"Transformed our social media presence in weeks."</p>
+          <strong>- Client 2</strong>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="section">
-<h2>Client Testimonials</h2>
-<div class="testimonial">
-<p>"Great marketing strategy and effective Facebook ad campaigns."</p>
-</div>
-<div class="testimonial">
-<p>"Our product visibility increased after running ads with Digital Pro."</p>
-</div>
-</section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container contact">
+      <h2>Contact Me</h2>
+      <p>Get in touch via WhatsApp or submit the form below.</p>
+      <a href="https://wa.me/YOURNUMBER" class="cta-btn">Chat on WhatsApp</a>
+    </div>
+  </section>
 
-<section id="contact" class="contact">
-<h2>Contact</h2>
-<p>Email: <a href="mailto:piustech61@gmail.com">piustech61@gmail.com</a></p>
-<p>Phone: 07015853416</p>
-<p>Let's grow your business with powerful digital marketing.</p>
-<a class="button" href="https://wa.me/message/OF43WIX2ORDTL1" target="_blank">Start WhatsApp Chat</a>
-</section>
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Digital Pro | All rights reserved.
+  </footer>
 
-<footer>
-<p>© 2026 Digital Pro | Digital Marketing Portfolio</p>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/message/OF43WIX2ORDTL1" target="_blank">WhatsApp</a>
+  <!-- JS for Section Reveal on Scroll -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const revealSection = () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        const trigger = window.innerHeight - 100;
+        if(top < trigger) { sec.classList.add('visible'); }
+      });
+    };
+    window.addEventListener('scroll', revealSection);
+    window.addEventListener('load', revealSection);
+  </script>
 
 </body>
 </html>
